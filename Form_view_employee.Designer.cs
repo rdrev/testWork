@@ -37,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.idBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,11 +115,29 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Имя";
             // 
+            // idBox
+            // 
+            this.idBox.Location = new System.Drawing.Point(307, 36);
+            this.idBox.Name = "idBox";
+            this.idBox.Size = new System.Drawing.Size(100, 20);
+            this.idBox.TabIndex = 51;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(206, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(15, 13);
+            this.label4.TabIndex = 50;
+            this.label4.Text = "id";
+            // 
             // Form_view_employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 278);
+            this.Controls.Add(this.idBox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.specialty);
             this.Controls.Add(this.label6);
@@ -147,5 +167,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox idBox;
+        private System.Windows.Forms.Label label4;
     }
 }

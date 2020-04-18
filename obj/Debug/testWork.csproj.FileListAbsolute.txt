@@ -26,3 +26,5 @@ C:\Users\Admin\source\repos\testWork\testWork\obj\Debug\testWork.Form_add_employ
 C:\Users\Admin\source\repos\testWork\testWork\obj\Debug\testWork.csprojAssemblyReference.cache
 C:\Users\Admin\source\repos\testWork\testWork\obj\Debug\testWork.Form_view_employee.resources
 C:\Users\Admin\source\repos\testWork\testWork\obj\Debug\testWork.Form_view_tasks.resources
+C:\Users\Admin\source\repos\testWork\testWork\obj\Debug\testWork.Form_update_employee.resources
+C:\Users\Admin\source\repos\testWork\testWork\obj\Debug\testWork.Form_update_task.resources

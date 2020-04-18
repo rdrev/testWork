@@ -34,8 +34,12 @@ namespace testWork
             {
                 add_task.Visible = false;
                 add_employee.Visible = false;
+
                 ybrati1.Visible = false;
                 ybrati2.Visible = false;
+                
+                update_task.Visible = false;
+                update_employee.Visible = false;
             }
         }
 
@@ -66,34 +70,35 @@ namespace testWork
                 sqlRead = comend.ExecuteReader();//создаем запрос
 
 
-                while (sqlRead.Read())
-                {
-                    listView1.Items.Add
-                      (new ListViewItem(new string[]
-                          {
-                            Convert.ToString(sqlRead["industry"]),
+            while (sqlRead.Read())
+            {
+                listView1.Items.Add
+                  (new ListViewItem(new string[]
+                      {
+                            Convert.ToString(sqlRead["id"]),
+                              Convert.ToString(sqlRead["industry"]),
                               Convert.ToString(sqlRead["name"]),
                               Convert.ToString(sqlRead["brigade"])
 
-                          })//водим результат в таблицу 
-                      );
-
-                }
-
-                if (sqlRead != null)
-                    sqlRead.Close();//проверка на откратасть 
-            }
-            catch (Exception ex)//обработка исключений
-            {
-                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (sqlRead != null)
-                    sqlRead.Close();//проверка на откратасть 
+                      })//водим результат в таблицу 
+                  );
 
             }
+
+            if (sqlRead != null)
+                sqlRead.Close();//проверка на откратасть 
         }
+        catch (Exception ex)//обработка исключений
+        {
+            MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            if (sqlRead != null)
+                sqlRead.Close();//проверка на откратасть 
+
+        }
+    }
 
         private void R_update_employee()
         {
@@ -123,43 +128,43 @@ namespace testWork
             {
                 sqlRead = comend.ExecuteReader();//создаем запрос
 
-                int c = 0;
-                ImageList ImageList1 = new ImageList();
-                ImageList1.ImageSize = new Size(50, 50);
+            int c = 0;
+            ImageList ImageList1 = new ImageList();
+            ImageList1.ImageSize = new Size(50, 50);
 
-                List<ListViewItem> ListViewItem1 = new List<ListViewItem>();
+            List<ListViewItem> ListViewItem1 = new List<ListViewItem>();
 
-                while (sqlRead.Read())
-                {
+            while (sqlRead.Read())
+            {
 
-                    ListViewItem1.Add(new ListViewItem(new string[]
-                          {
-                              "",
+                ListViewItem1.Add(new ListViewItem(new string[]
+                      {
+                           "",
                             Convert.ToString(sqlRead["surname"]),
-                              Convert.ToString(sqlRead["name"]),
+                            Convert.ToString(sqlRead["name"]),
                               Convert.ToString(sqlRead["patronymic"]),
-                              Convert.ToString(sqlRead["specialty"])
-                          }));
+                              Convert.ToString(sqlRead["specialty"]),
+                              Convert.ToString(sqlRead["id"])
+                      }));
 
-                    str = Convert.ToString(sqlRead["surname"]);
 
-                    ImageList1.Images.Add
-                    (new Bitmap(
-                        Image.FromFile(Convert.ToString(sqlRead["photo"]))));
+                ImageList1.Images.Add
+                (new Bitmap(
+                    Image.FromFile(Convert.ToString(sqlRead["photo"]))));
 
-                    c++;
-                }
+                c++;
+            }
 
-                listView2.SmallImageList = ImageList1;
+            listView2.SmallImageList = ImageList1;
 
-                for (int i = 0; i < c; i++)
-                {
-                    ListViewItem1[i].ImageIndex = i;
+            for (int i = 0; i < c; i++)
+            {
+                ListViewItem1[i].ImageIndex = i;
 
-                    listView2.Items.Add(ListViewItem1[i]);
-                }
-                if (sqlRead != null)
-                    sqlRead.Close();//проверка на откратасть 
+                listView2.Items.Add(ListViewItem1[i]);
+            }
+            if (sqlRead != null)
+                sqlRead.Close();//проверка на откратасть 
             }
             catch (Exception ex)//обработка исключений
             {
@@ -189,23 +194,24 @@ namespace testWork
         private void CheckBtnActivity1()
         {
             ybrati1.Enabled = listView1.SelectedItems.Count > 0;
+            update_task.Enabled = listView1.SelectedItems.Count > 0;
+            view_task.Enabled = listView1.SelectedItems.Count > 0;
 
         }
         private void CheckBtnActivity2()
         {
             ybrati2.Enabled = listView2.SelectedItems.Count > 0;
-
+            update_employee.Enabled = listView2.SelectedItems.Count > 0;
+            view_employee.Enabled = listView2.SelectedItems.Count > 0;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void ybrati1_Click(object sender, EventArgs e)
         {
             SqlCommand comend = new SqlCommand("DELETE FROM [tasks] " +
-                                                    "WHERE [industry] = @industry, [name] = @name, [brigade] = @brigade", sqlConn);//перемеена для хранение  запроса
+                                                    "WHERE [id] = @id", sqlConn);//перемеена для хранение  запроса
 
-            comend.Parameters.AddWithValue("@brigade", listView1.SelectedItems[0].SubItems[0].Text);
-            comend.Parameters.AddWithValue("@name", listView1.SelectedItems[0].SubItems[1].Text);
-            comend.Parameters.AddWithValue("@brigade", listView1.SelectedItems[0].SubItems[2].Text);
+            comend.Parameters.AddWithValue("@id", listView1.SelectedItems[0].SubItems[0].Text);
             try
             {
                 comend.ExecuteReader();//создаем запрос
@@ -220,12 +226,9 @@ namespace testWork
         private void ybrati2_Click(object sender, EventArgs e)
         {
             SqlCommand comend = new SqlCommand("DELETE FROM [employee] " +
-                                                    "WHERE [name] = @name, [surname] = @surname,[patronymic] = @patronymic, [specialty] = @specialty", sqlConn);//перемеена для хранение  запроса
+                                                    "WHERE [id] = @id", sqlConn);//перемеена для хранение  запроса
 
-            comend.Parameters.AddWithValue("@name", listView1.SelectedItems[0].SubItems[1].Text);
-            comend.Parameters.AddWithValue("@surname", listView1.SelectedItems[0].SubItems[2].Text);
-            comend.Parameters.AddWithValue("@patronymic", listView1.SelectedItems[0].SubItems[3].Text);
-            comend.Parameters.AddWithValue("@specialty", listView1.SelectedItems[0].SubItems[4].Text);
+            comend.Parameters.AddWithValue("@id", listView1.SelectedItems[0].SubItems[0].Text);
             try
             {
                 comend.ExecuteReader();//создаем запрос
@@ -257,10 +260,8 @@ namespace testWork
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void view_task_Click(object sender, EventArgs e)
         {
-            Form_view_tasks f = new Form_view_tasks(
-                listView1.SelectedItems[0].SubItems[0].Text,
-                listView1.SelectedItems[0].SubItems[1].Text,
-                listView1.SelectedItems[0].SubItems[2].Text);
+            Form_view_tasks f = new Form_view_tasks(sqlConn,
+                listView1.SelectedItems[0].SubItems[3].Text);
 
             f.Show();
         }
@@ -268,12 +269,37 @@ namespace testWork
         private void view_employee_Click(object sender, EventArgs e)
         {
             Form_view_employee f = new Form_view_employee(sqlConn,
-                listView2.SelectedItems[0].SubItems[1].Text,
-                listView2.SelectedItems[0].SubItems[2].Text,
-                listView2.SelectedItems[0].SubItems[3].Text,
-                listView2.SelectedItems[0].SubItems[4].Text);
+                listView2.SelectedItems[0].SubItems[5].Text);
 
             f.Show();
         }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void update_employee_Click(object sender, EventArgs e)
+        {
+            Form_update_employee f = new Form_update_employee(sqlConn,
+                listView2.SelectedItems[0].SubItems[5].Text);
+
+            f.Show();
+        }
+
+        private void update_task_Click(object sender, EventArgs e)
+        {
+            Form_update_task f = new Form_update_task(sqlConn,
+                listView1.SelectedItems[0].SubItems[3].Text);
+
+            f.Show();
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        private void обновитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            R_update_tasks();
+            R_update_employee();
+        }
+
+        
     }
 }

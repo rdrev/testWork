@@ -14,27 +14,16 @@ namespace testWork
     public partial class Form_view_employee : Form
     {
         SqlConnection sqlConn;
-        string s_name,
-             s_surname,
-             s_patronymic,
-             s_specialty;
+        string id;
 
-        public Form_view_employee(SqlConnection sqlConn,
-            string name,
-            string surname, 
-            string patronymic,
-            string specialty)
+        public Form_view_employee(SqlConnection sqlConn, string id)
         {
             InitializeComponent();
             this.sqlConn = sqlConn;
-            this.name.Text = name; s_name = name;
-            this.surname.Text = surname; s_surname = surname;
-            this.patronymic.Text = patronymic; s_patronymic = patronymic;
-            this.specialty.Text = specialty; s_specialty = specialty;
-
+            this.id = id;
         }
 
-        private async void Form_view_employee_Load(object sender, EventArgs e) {
+        private void Form_view_employee_Load(object sender, EventArgs e) {
 
 
            // await sqlConn.OpenAsync();
@@ -43,23 +32,55 @@ namespace testWork
 
             SqlCommand comend = new SqlCommand();//перемеена для хранение  запроса
 
-            string comond = "SELECT  [photo]" +
+            idBox.Text = id;
+
+            string comond = "SELECT  *" +
                 "FROM [employee]" +
-               "WHERE [name] = @name AND [surname] = @surname AND [patronymic] = @patronymic AND [specialty] = @specialty";
+               "WHERE [id] = @id ";
             comend = new SqlCommand(comond, sqlConn);
-            comend.Parameters.AddWithValue("@name", s_name);
-            comend.Parameters.AddWithValue("@surname", s_surname);
-            comend.Parameters.AddWithValue("@patronymic", s_patronymic);
-            comend.Parameters.AddWithValue("@specialty", s_specialty);
+            comend.Parameters.AddWithValue("@id", Convert.ToString(id));
 
             
 
             if (sqlRead != null)
                 sqlRead.Close();//проверка на откратасть 
-            
+
+            try
+            {
+                sqlRead = comend.ExecuteReader();//создаем запрос
+
+               
+
+                List<ListViewItem> ListViewItem1 = new List<ListViewItem>();
+
+                while (sqlRead.Read())
+                {
 
 
-                this.Hide();
+                    surname.Text = Convert.ToString(sqlRead["surname"]);
+                    name.Text = Convert.ToString(sqlRead["name"]);
+                    patronymic.Text = Convert.ToString(sqlRead["patronymic"]);
+                    specialty.Text = Convert.ToString(sqlRead["specialty"]);
+
+
+
+                   pictureBox1.Image = new Bitmap(
+                        Image.FromFile(Convert.ToString(sqlRead["photo"])));
+
+                }
+        }
+            catch (Exception ex)//обработка исключений
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlRead != null)
+                    sqlRead.Close();//проверка на откратасть 
+
+            }
+
+            this.Hide();
         } 
     }
 }

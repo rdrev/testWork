@@ -34,6 +34,8 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.update_task = new System.Windows.Forms.Button();
+            this.view_task = new System.Windows.Forms.Button();
             this.ybrati1 = new System.Windows.Forms.Button();
             this.add_task = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -41,6 +43,8 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.update_employee = new System.Windows.Forms.Button();
+            this.view_employee = new System.Windows.Forms.Button();
             this.ybrati2 = new System.Windows.Forms.Button();
             this.add_employee = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
@@ -49,10 +53,10 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.view_task = new System.Windows.Forms.Button();
-            this.update_task = new System.Windows.Forms.Button();
-            this.update_employee = new System.Windows.Forms.Button();
-            this.view_employee = new System.Windows.Forms.Button();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.обновитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -71,7 +75,8 @@
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.справкаToolStripMenuItem});
+            this.справкаToolStripMenuItem,
+            this.справкаToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(800, 24);
@@ -86,9 +91,11 @@
             // 
             // справкаToolStripMenuItem
             // 
+            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.обновитьToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.справкаToolStripMenuItem.Text = "Справка";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.справкаToolStripMenuItem.Text = "Инструменты";
             // 
             // tabControl1
             // 
@@ -116,6 +123,26 @@
             this.tabPage1.Text = "Задачи";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // update_task
+            // 
+            this.update_task.Location = new System.Drawing.Point(251, 6);
+            this.update_task.Name = "update_task";
+            this.update_task.Size = new System.Drawing.Size(75, 23);
+            this.update_task.TabIndex = 5;
+            this.update_task.Text = "Изменить";
+            this.update_task.UseVisualStyleBackColor = true;
+            this.update_task.Click += new System.EventHandler(this.update_task_Click);
+            // 
+            // view_task
+            // 
+            this.view_task.Location = new System.Drawing.Point(8, 6);
+            this.view_task.Name = "view_task";
+            this.view_task.Size = new System.Drawing.Size(75, 23);
+            this.view_task.TabIndex = 4;
+            this.view_task.Text = "Просмотр";
+            this.view_task.UseVisualStyleBackColor = true;
+            this.view_task.Click += new System.EventHandler(this.view_task_Click);
+            // 
             // ybrati1
             // 
             this.ybrati1.Location = new System.Drawing.Point(170, 6);
@@ -139,6 +166,7 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
@@ -156,16 +184,19 @@
             // 
             // columnHeader1
             // 
+            this.columnHeader1.DisplayIndex = 0;
             this.columnHeader1.Text = "Отрасаль";
             this.columnHeader1.Width = 67;
             // 
             // columnHeader2
             // 
+            this.columnHeader2.DisplayIndex = 1;
             this.columnHeader2.Text = "Название задачи";
             this.columnHeader2.Width = 205;
             // 
             // columnHeader3
             // 
+            this.columnHeader3.DisplayIndex = 2;
             this.columnHeader3.Text = "Бригада";
             // 
             // tabPage2
@@ -182,6 +213,26 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Сотрудники";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // update_employee
+            // 
+            this.update_employee.Location = new System.Drawing.Point(251, 6);
+            this.update_employee.Name = "update_employee";
+            this.update_employee.Size = new System.Drawing.Size(75, 23);
+            this.update_employee.TabIndex = 7;
+            this.update_employee.Text = "Изменить";
+            this.update_employee.UseVisualStyleBackColor = true;
+            this.update_employee.Click += new System.EventHandler(this.update_employee_Click);
+            // 
+            // view_employee
+            // 
+            this.view_employee.Location = new System.Drawing.Point(8, 6);
+            this.view_employee.Name = "view_employee";
+            this.view_employee.Size = new System.Drawing.Size(75, 23);
+            this.view_employee.TabIndex = 6;
+            this.view_employee.Text = "Просмотр";
+            this.view_employee.UseVisualStyleBackColor = true;
+            this.view_employee.Click += new System.EventHandler(this.view_employee_Click);
             // 
             // ybrati2
             // 
@@ -210,7 +261,8 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7,
-            this.columnHeader8});
+            this.columnHeader8,
+            this.columnHeader10});
             this.listView2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listView2.FullRowSelect = true;
             this.listView2.GridLines = true;
@@ -248,43 +300,27 @@
             this.columnHeader8.Text = "Должность";
             this.columnHeader8.Width = 151;
             // 
-            // view_task
+            // columnHeader9
             // 
-            this.view_task.Location = new System.Drawing.Point(8, 6);
-            this.view_task.Name = "view_task";
-            this.view_task.Size = new System.Drawing.Size(75, 23);
-            this.view_task.TabIndex = 4;
-            this.view_task.Text = "Просмотр";
-            this.view_task.UseVisualStyleBackColor = true;
-            this.view_task.Click += new System.EventHandler(this.view_task_Click);
+            this.columnHeader9.Text = "id";
             // 
-            // update_task
+            // columnHeader10
             // 
-            this.update_task.Location = new System.Drawing.Point(251, 6);
-            this.update_task.Name = "update_task";
-            this.update_task.Size = new System.Drawing.Size(75, 23);
-            this.update_task.TabIndex = 5;
-            this.update_task.Text = "Изменить";
-            this.update_task.UseVisualStyleBackColor = true;
+            this.columnHeader10.DisplayIndex = 1;
+            this.columnHeader10.Text = "id";
             // 
-            // update_employee
+            // справкаToolStripMenuItem1
             // 
-            this.update_employee.Location = new System.Drawing.Point(251, 6);
-            this.update_employee.Name = "update_employee";
-            this.update_employee.Size = new System.Drawing.Size(75, 23);
-            this.update_employee.TabIndex = 7;
-            this.update_employee.Text = "Изменить";
-            this.update_employee.UseVisualStyleBackColor = true;
+            this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
+            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem1.Text = "Справка";
             // 
-            // view_employee
+            // обновитьToolStripMenuItem
             // 
-            this.view_employee.Location = new System.Drawing.Point(8, 6);
-            this.view_employee.Name = "view_employee";
-            this.view_employee.Size = new System.Drawing.Size(75, 23);
-            this.view_employee.TabIndex = 6;
-            this.view_employee.Text = "Просмотр";
-            this.view_employee.UseVisualStyleBackColor = true;
-            this.view_employee.Click += new System.EventHandler(this.view_employee_Click);
+            this.обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
+            this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.обновитьToolStripMenuItem.Text = "Обновить";
+            this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
             // 
             // Menu_men
             // 
@@ -335,5 +371,9 @@
         private System.Windows.Forms.Button view_task;
         private System.Windows.Forms.Button update_employee;
         private System.Windows.Forms.Button view_employee;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ToolStripMenuItem обновитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem1;
     }
 }

@@ -45,6 +45,7 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Отрасаль";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -54,6 +55,7 @@
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Название задачи";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -63,6 +65,7 @@
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Бригада";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // industry
             // 
@@ -70,6 +73,7 @@
             this.industry.Name = "industry";
             this.industry.Size = new System.Drawing.Size(100, 20);
             this.industry.TabIndex = 3;
+            this.industry.TextChanged += new System.EventHandler(this.industry_TextChanged);
             // 
             // name
             // 
@@ -77,6 +81,7 @@
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(100, 20);
             this.name.TabIndex = 4;
+            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             // 
             // brigade
             // 
@@ -84,6 +89,7 @@
             this.brigade.Name = "brigade";
             this.brigade.Size = new System.Drawing.Size(100, 20);
             this.brigade.TabIndex = 5;
+            this.brigade.TextChanged += new System.EventHandler(this.brigade_TextChanged);
             // 
             // add
             // 

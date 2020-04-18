@@ -68,6 +68,18 @@
     <Compile Include="Form_add_tasks.Designer.cs">
       <DependentUpon>Form_add_tasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_update_employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_update_employee.Designer.cs">
+      <DependentUpon>Form_update_employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_update_task.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_update_task.Designer.cs">
+      <DependentUpon>Form_update_task.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_view_employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_add_tasks.resx">
       <DependentUpon>Form_add_tasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_update_employee.resx">
+      <DependentUpon>Form_update_employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_update_task.resx">
+      <DependentUpon>Form_update_task.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_view_employee.resx">
       <DependentUpon>Form_view_employee.cs</DependentUpon>

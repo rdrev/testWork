@@ -17,11 +17,11 @@ namespace testWork
         SqlConnection sqlConn;
         string FileName = "";
 
-        public Form_add_employee(SqlConnection sqlConn1)
+        public Form_add_employee(SqlConnection sqlConn)
         {
             InitializeComponent();
 
-            sqlConn = sqlConn1;
+            this.sqlConn = sqlConn;
         }
 
         private void add_Click(object sender, EventArgs e)
