@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Text;
 
 namespace testWork
 {
@@ -56,10 +57,16 @@ namespace testWork
 
 
 
-            string comond = "SELECT DISTINCT *" +
-                "FROM [tasks]";
+            string comond = "SELECT " +
+                "[tasks].[id] AS id_ta," +
+                " [industry], " +
+                "[tasks].[name] AS na_ta," +
+                " [brigade].[name] AS na_br " +
+                "FROM [tasks], [brigade]" +
+                " WHERE  [tasks].[brigade] = [brigade].[id]";
 
-
+            //string comond = "SELECT *" +
+            //    "FROM [tasks]"; 
             comend = new SqlCommand(comond, sqlConn);
 
             if (sqlRead != null)
@@ -75,10 +82,14 @@ namespace testWork
                 listView1.Items.Add
                   (new ListViewItem(new string[]
                       {
-                            Convert.ToString(sqlRead["id"]),
+                            Convert.ToString(sqlRead["id_ta"]),
                               Convert.ToString(sqlRead["industry"]),
-                              Convert.ToString(sqlRead["name"]),
-                              Convert.ToString(sqlRead["brigade"])
+                              Convert.ToString(sqlRead["na_ta"]),
+                              Convert.ToString(sqlRead["na_br"])
+                             //Convert.ToString(sqlRead["id"]),
+                             // Convert.ToString(sqlRead["industry"]),
+                             // Convert.ToString(sqlRead["name"]),
+                             // Convert.ToString(sqlRead["brigade"])
 
                       })//водим результат в таблицу 
                   );
@@ -105,18 +116,19 @@ namespace testWork
             listView2.Items.Clear();//очишаем таблицу 
 
 
-            List<string> photo = new List<string>(),
-                 surname = new List<string>(),
-                  name = new List<string>(),
-                   patronymic = new List<string>(),
-                    specialtry = new List<string>();
+            //List<string> photo = new List<string>(),
+            //     surname = new List<string>(),
+            //      name = new List<string>(),
+            //       patronymic = new List<string>(),
+            //        specialtry = new List<string>();
 
             SqlDataReader sqlRead = null;//перемеена для хранение вывода  запроса
 
             SqlCommand comend = new SqlCommand();//перемеена для хранение  запроса
 
-            string comond = "SELECT  *" +
-                "FROM [employee]";
+            string comond = "SELECT  [surname], [employee].[name] AS name_em, [patronymic], [specialty], [employee].[id] AS id_em, [photo], [brigade].[name] AS name_br, [vin]" +
+                "FROM [employee], [brigade]" +
+                "WHERE [employee].[brigade] = [brigade].[id]";
 
 
             comend = new SqlCommand(comond, sqlConn);
@@ -141,10 +153,12 @@ namespace testWork
                       {
                            "",
                             Convert.ToString(sqlRead["surname"]),
-                            Convert.ToString(sqlRead["name"]),
+                            Convert.ToString(sqlRead["name_em"]),
                               Convert.ToString(sqlRead["patronymic"]),
                               Convert.ToString(sqlRead["specialty"]),
-                              Convert.ToString(sqlRead["id"])
+                              Convert.ToString(sqlRead["id_em"]),
+                              Convert.ToString(sqlRead["name_br"]),
+                              Convert.ToString(sqlRead["vin"])
                       }));
 
 
@@ -300,6 +314,14 @@ namespace testWork
             R_update_employee();
         }
 
-        
+        private void инфVINToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int year = VIN.rdrev.GET_year(listView2.SelectedItems[0].SubItems[7].Text);
+           
+
+            MessageBox.Show(Convert.ToString(year), "year",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Question);
+        }
     }
 }

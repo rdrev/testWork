@@ -32,6 +32,8 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.обновитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.update_task = new System.Windows.Forms.Button();
@@ -39,6 +41,7 @@
             this.ybrati1 = new System.Windows.Forms.Button();
             this.add_task = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,10 +56,10 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.обновитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.инфVINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -92,10 +95,24 @@
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.обновитьToolStripMenuItem});
+            this.обновитьToolStripMenuItem,
+            this.инфVINToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.справкаToolStripMenuItem.Text = "Инструменты";
+            // 
+            // обновитьToolStripMenuItem
+            // 
+            this.обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
+            this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.обновитьToolStripMenuItem.Text = "Обновить";
+            this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
+            // 
+            // справкаToolStripMenuItem1
+            // 
+            this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
+            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem1.Text = "Справка";
             // 
             // tabControl1
             // 
@@ -182,21 +199,22 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "id";
+            // 
             // columnHeader1
             // 
-            this.columnHeader1.DisplayIndex = 0;
             this.columnHeader1.Text = "Отрасаль";
             this.columnHeader1.Width = 67;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.DisplayIndex = 1;
             this.columnHeader2.Text = "Название задачи";
             this.columnHeader2.Width = 205;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.DisplayIndex = 2;
             this.columnHeader3.Text = "Бригада";
             // 
             // tabPage2
@@ -262,7 +280,9 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8,
-            this.columnHeader10});
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12});
             this.listView2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listView2.FullRowSelect = true;
             this.listView2.GridLines = true;
@@ -282,45 +302,48 @@
             // 
             // columnHeader5
             // 
+            this.columnHeader5.DisplayIndex = 2;
             this.columnHeader5.Text = "Фамилия";
             this.columnHeader5.Width = 109;
             // 
             // columnHeader6
             // 
+            this.columnHeader6.DisplayIndex = 3;
             this.columnHeader6.Text = "Имя";
             this.columnHeader6.Width = 109;
             // 
             // columnHeader7
             // 
+            this.columnHeader7.DisplayIndex = 4;
             this.columnHeader7.Text = "Отчество";
             this.columnHeader7.Width = 114;
             // 
             // columnHeader8
             // 
+            this.columnHeader8.DisplayIndex = 5;
             this.columnHeader8.Text = "Должность";
-            this.columnHeader8.Width = 151;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "id";
+            this.columnHeader8.Width = 98;
             // 
             // columnHeader10
             // 
             this.columnHeader10.DisplayIndex = 1;
             this.columnHeader10.Text = "id";
             // 
-            // справкаToolStripMenuItem1
+            // columnHeader11
             // 
-            this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
-            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
-            this.справкаToolStripMenuItem1.Text = "Справка";
+            this.columnHeader11.Text = "Бригада";
             // 
-            // обновитьToolStripMenuItem
+            // columnHeader12
             // 
-            this.обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
-            this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.обновитьToolStripMenuItem.Text = "Обновить";
-            this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
+            this.columnHeader12.Text = "Машина";
+            this.columnHeader12.Width = 112;
+            // 
+            // инфVINToolStripMenuItem
+            // 
+            this.инфVINToolStripMenuItem.Name = "инфVINToolStripMenuItem";
+            this.инфVINToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.инфVINToolStripMenuItem.Text = "Инф VIN";
+            this.инфVINToolStripMenuItem.Click += new System.EventHandler(this.инфVINToolStripMenuItem_Click);
             // 
             // Menu_men
             // 
@@ -375,5 +398,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ToolStripMenuItem обновитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem1;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ToolStripMenuItem инфVINToolStripMenuItem;
     }
 }
