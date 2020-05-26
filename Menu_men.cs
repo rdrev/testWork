@@ -314,14 +314,20 @@ namespace testWork
             R_update_employee();
         }
 
-        private void инфVINToolStripMenuItem_Click(object sender, EventArgs e)
+        private void инфVINToolStripMenuItem_Click(object sender, EventArgs e)//вывод собщения о годе
         {
-            int year = VIN.rdrev.GET_year(listView2.SelectedItems[0].SubItems[7].Text);
-           
-
-            MessageBox.Show(Convert.ToString(year), "year",
+                 MessageBox.Show(VIN.rdrev.GET_year(listView2.SelectedItems[0].SubItems[7].Text, sqlConn),//текст из функции dll 
+                                "year",//заголовок 
                                  MessageBoxButtons.OK,
-                                 MessageBoxIcon.Question);
+                                 MessageBoxIcon.Question);//тип поля
+        }
+
+        private void инфЗаводVINToolStripMenuItem_Click(object sender, EventArgs e)//вывод собщения о заводе
+        {
+            MessageBox.Show(VIN.rdrev.GET_factory(listView2.SelectedItems[0].SubItems[7].Text, sqlConn),//текст из функции dll 
+                               "factory",//заголовок 
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Question);//тип поля
         }
     }
 }

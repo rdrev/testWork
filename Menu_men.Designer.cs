@@ -33,6 +33,7 @@
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обновитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.инфVINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -59,7 +60,7 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.инфVINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.инфЗаводVINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -96,7 +97,8 @@
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.обновитьToolStripMenuItem,
-            this.инфVINToolStripMenuItem});
+            this.инфVINToolStripMenuItem,
+            this.инфЗаводVINToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.справкаToolStripMenuItem.Text = "Инструменты";
@@ -107,6 +109,13 @@
             this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.обновитьToolStripMenuItem.Text = "Обновить";
             this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
+            // 
+            // инфVINToolStripMenuItem
+            // 
+            this.инфVINToolStripMenuItem.Name = "инфVINToolStripMenuItem";
+            this.инфVINToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.инфVINToolStripMenuItem.Text = "Инф год VIN";
+            this.инфVINToolStripMenuItem.Click += new System.EventHandler(this.инфVINToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem1
             // 
@@ -338,12 +347,12 @@
             this.columnHeader12.Text = "Машина";
             this.columnHeader12.Width = 112;
             // 
-            // инфVINToolStripMenuItem
+            // инфЗаводVINToolStripMenuItem
             // 
-            this.инфVINToolStripMenuItem.Name = "инфVINToolStripMenuItem";
-            this.инфVINToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.инфVINToolStripMenuItem.Text = "Инф VIN";
-            this.инфVINToolStripMenuItem.Click += new System.EventHandler(this.инфVINToolStripMenuItem_Click);
+            this.инфЗаводVINToolStripMenuItem.Name = "инфЗаводVINToolStripMenuItem";
+            this.инфЗаводVINToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.инфЗаводVINToolStripMenuItem.Text = "Инф завод VIN";
+            this.инфЗаводVINToolStripMenuItem.Click += new System.EventHandler(this.инфЗаводVINToolStripMenuItem_Click);
             // 
             // Menu_men
             // 
@@ -401,5 +410,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ToolStripMenuItem инфVINToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem инфЗаводVINToolStripMenuItem;
     }
 }
